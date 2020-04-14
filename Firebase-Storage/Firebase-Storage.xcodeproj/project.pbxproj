@@ -150,13 +150,13 @@
 				31B1FD282444D25D00C8FCEF /* MediaModules */,
 				31B1FD1D2444BBA600C8FCEF /* GoogleService-Info.plist */,
 				31B1FCED2444B84700C8FCEF /* AppDelegate.swift */,
+				31B1FD312445265600C8FCEF /* ImagesListView.swift */,
 				31B1FCEF2444B84700C8FCEF /* SceneDelegate.swift */,
 				31B1FCF12444B84700C8FCEF /* ContentView.swift */,
 				31B1FCF32444B84800C8FCEF /* Assets.xcassets */,
 				31B1FCF82444B84800C8FCEF /* LaunchScreen.storyboard */,
 				31B1FCFB2444B84800C8FCEF /* Info.plist */,
 				31B1FCF52444B84800C8FCEF /* Preview Content */,
-				31B1FD312445265600C8FCEF /* ImagesListView.swift */,
 			);
 			path = "Firebase-Storage";
 			sourceTree = "<group>";
