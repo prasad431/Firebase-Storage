@@ -7,38 +7,17 @@
 //
 
 import SwiftUI
-
+import FirebaseStorage
 struct ContentView: View {
     @State var image: Image? = nil
     @State var shown: Bool = false
     @State var isdownloaded: Bool = false
     
     var body: some View {
-      ZStack {
-        VStack {
-          Button(action: {
-            self.shown.toggle()
-          }) {
-            Text("Select & Upload Photo")
-          }
-          image?.resizable()
-            .frame(width: 250, height: 200)
-            .clipShape(Circle())
-            .overlay(Circle().stroke(Color.white, lineWidth: 4))
-            .shadow(radius: 10)
-            Button(action: {
-            }) {
-                Text("Display Photos")
-            }
-        }
-        if (shown) {
-            CaptureImageView(isShown: $shown, image: $image, sourceType: .savedPhotosAlbum)
-        }
-      }
+      ImagesListView()
     }
-    
-}
 
+}
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
