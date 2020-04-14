@@ -7,6 +7,7 @@ target 'Firebase-Storage' do
 pod 'Firebase/Analytics'
 pod 'Firebase/Core'
 pod 'Firebase/Storage'
+pod 'FirebaseUI/Storage'
   # Pods for Firebase-Storage
 
   target 'Firebase-StorageTests' do

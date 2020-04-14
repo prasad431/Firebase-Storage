@@ -18,7 +18,7 @@ final class Loader : ObservableObject {
     }
     
     init(path urlpath:String,_ id: String){
-        let url = urlpath + "/" + id
+        let url = urlpath + id
         let storage = Storage.storage()
         let ref = storage.reference().child(url)
         ref.getData(maxSize: 1 * 1024 * 1024) { data, error in
@@ -39,7 +39,7 @@ struct FirebaseImage : View {
     
     init(id: String) {
         placeholder  = UIImage(named: "images_placeholder.png")!
-        self.imageLoader = Loader(path: "/assets/images", id)
+        self.imageLoader = Loader(path: "/assets/images/", id)
     }
     
     @ObservedObject private var imageLoader : Loader
