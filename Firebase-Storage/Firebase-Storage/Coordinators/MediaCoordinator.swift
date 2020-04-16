@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-class Coordinator: NSObject, UINavigationControllerDelegate {
+/*class Coordinator: NSObject, UINavigationControllerDelegate {
     
     @Binding var isCoordinatorShown: Bool
     var parentController: CaptureImageView!
@@ -42,4 +42,4 @@ extension Coordinator: UIImagePickerControllerDelegate {
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         isCoordinatorShown = false
     }
-}
+}*/

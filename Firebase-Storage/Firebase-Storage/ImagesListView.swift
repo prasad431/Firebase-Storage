@@ -8,9 +8,7 @@
 
 import SwiftUI
 import FirebaseStorage
-import Firebase
 import Combine
-import FirebaseUI
 
 
 final class ImagesList: ObservableObject {
@@ -21,9 +19,9 @@ final class ImagesList: ObservableObject {
     init() {
         let storageRef = Storage.storage().reference().child("/assets/images")
         storageRef.listAll { (result, error) in
-          for item in result.items {
-            self.data.append(ImageData(item.name, item.fullPath, item.bucket))
-          }
+            for item in result.items {
+                self.data.append(ImageData(item.name, item.fullPath, item.bucket))
+            }
         }
     }
 }
@@ -41,28 +39,38 @@ struct ImageData: Identifiable {
     }
 }
 
+struct ImageRow: View {
+    var imageData: ImageData
+    var body: some View {
+        FirebaseImage(id: imageData.image_name)
+    }
+}
+
 struct ImagesListView: View {
     @ObservedObject private var imageList : ImagesList
+    @Environment(\.presentationMode) var presentationMode
+    
     init() {
         self.imageList = ImagesList()
     }
     
     
     var body: some View {
-        List(self.imageList.data) { data in
-            ImageRow(imageData: data)
+        Group{
+            Button(action: {
+                self.presentationMode.wrappedValue.dismiss()
+            }) {
+                Text("Back to Home")
+            }.padding(20)
+            List(self.imageList.data) { data in
+                ImageRow(imageData: data).padding(10)
+            }
+        }.onAppear {
+            print("presentationMode = \(self.presentationMode)")
         }
     }
     
     
-}
-
-
-struct ImageRow: View {
-    var imageData: ImageData
-    var body: some View {
-        FirebaseImage(id: imageData.image_name)
-    }
 }
 
 struct ImagesListView_Previews: PreviewProvider {
